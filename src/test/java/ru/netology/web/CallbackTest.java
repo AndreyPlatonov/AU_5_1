@@ -273,7 +273,7 @@ public class CallbackTest {
         $("[data-test-id=name] input").setValue(infoClient.getFullName());
         $("[data-test-id=phone] input").setValue(infoClient.getPhone());
         $$("button").find(exactText("Запланировать")).click();
-        $("[data-test-id=agreement]").shouldHave(Condition.cssClass("input_invalid"));
+        $("[data-test-id=agreement].input_invalid .checkbox__text").shouldHave(Condition.exactText("Я соглашаюсь с условиями обработки и использования моих персональных данных"));
 
     }
 
