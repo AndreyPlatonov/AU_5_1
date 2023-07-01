@@ -238,26 +238,6 @@ public class CallbackTest {
 
     }
 
-    /*@Test
-    void submitFailedWrongPhone() {
-
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
-
-        $("[data-test-id=city] input").setValue(infoClient.getCity());
-        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(dateMeeting);
-        $("[data-test-id=name] input").setValue(infoClient.getFullName());
-        $("[data-test-id=phone] input").setValue("+79201SSFF234");
-        $("[data-test-id=agreement]").click();
-        $$("button").find(exactText("Запланировать")).click();
-        $("[data-test-id=phone].input.input_invalid .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.")).shouldBe(Condition.visible);
-
-    }*/
-
     @Test
     void submitFailedNotCheck() {
 
