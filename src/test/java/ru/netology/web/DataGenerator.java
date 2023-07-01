@@ -5,8 +5,7 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 public class DataGenerator {
-    // private DataGenerator() {
-    //   }
+
     public static RegistrationByClientInfo generatedByInfo() {
         Faker faker = new Faker(new Locale(("ru")));
         return new RegistrationByClientInfo(

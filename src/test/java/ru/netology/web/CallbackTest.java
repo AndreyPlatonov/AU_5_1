@@ -28,7 +28,6 @@ public class CallbackTest {
         DataGenerator clientInfo = new DataGenerator();
         RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
 
-
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='city'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='phone'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
