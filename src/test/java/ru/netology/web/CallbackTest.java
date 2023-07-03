@@ -22,11 +22,8 @@ public class CallbackTest {
     @Test
     void submitSuccessRePlannedRequest() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='city'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -41,7 +38,7 @@ public class CallbackTest {
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id=success-notification] .notification__content").shouldHave(Condition.text("Встреча успешно запланирована на " + dateMeeting), Duration.ofSeconds(5));
 
-        dateMeeting = dateFormatter.currentPlusDays(14);
+        dateMeeting = DataGenerator.FormatDate.currentPlusDays(14);
 
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='city'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -51,7 +48,6 @@ public class CallbackTest {
         $("[data-test-id=date] input").setValue(dateMeeting);
         $("[data-test-id=name] input").setValue(infoClient.getFullName());
         $("[data-test-id=phone] input").setValue(infoClient.getPhone());
-        //    $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id=replan-notification] .notification__content").shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"), Duration.ofSeconds(5));
         $$("button").find(exactText("Перепланировать")).click();
@@ -62,11 +58,8 @@ public class CallbackTest {
     @Test
     void submitSuccessRequest() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -82,11 +75,9 @@ public class CallbackTest {
     @Test
     void submitFailedNullCity() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
 
         $("[data-test-id=city] input").setValue("");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -102,11 +93,8 @@ public class CallbackTest {
     @Test
     void submitFailedWrongCity() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue("ввввввв");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -122,8 +110,7 @@ public class CallbackTest {
     @Test
     void submitFailedNullDate() {
 
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -140,11 +127,8 @@ public class CallbackTest {
     @Test
     void submitSuccessBoundDate() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(3);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(3);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -160,11 +144,8 @@ public class CallbackTest {
     @Test
     void submitFailedBeforeDate() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(1);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(1);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -180,11 +161,8 @@ public class CallbackTest {
     @Test
     void submitFailedNullName() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -200,11 +178,8 @@ public class CallbackTest {
     @Test
     void submitFailedWrongName() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -220,11 +195,8 @@ public class CallbackTest {
     @Test
     void submitFailedNullPhone() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -240,11 +212,8 @@ public class CallbackTest {
     @Test
     void submitFailedNotCheck() {
 
-        FormatDate dateFormatter = new FormatDate();
-        String dateMeeting = dateFormatter.currentPlusDays(4);
-
-        DataGenerator clientInfo = new DataGenerator();
-        RegistrationByClientInfo infoClient = clientInfo.generatedByInfo();
+        var dateMeeting = DataGenerator.FormatDate.currentPlusDays(4);
+        var infoClient = DataGenerator.generatedByInfo();
 
         $("[data-test-id=city] input").setValue(infoClient.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
